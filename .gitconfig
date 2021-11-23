@@ -1,0 +1,13 @@
+[user]
+	name = N J Stewart
+	username = md1njst
+	email = neil.stewart@sheffield.ac.uk
+
+[core]
+	sshCommand = "ssh -i ~/.ssh/id_rsa_gitlab_sheffield"
+
+[includeIf "gitdir:~/Documents/github/"]
+    path = ~/.gitconfig_github_personal
+
+[includeIf "gitdir:~/Documents/gitlab/"]
+    path = ~/.gitconfig_gitlab_work
