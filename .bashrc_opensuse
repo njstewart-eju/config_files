@@ -1,0 +1,33 @@
+# Sample .bashrc for SUSE Linux
+# Copyright (c) SUSE Software Solutions Germany GmbH
+
+# There are 3 different types of shells in bash: the login shell, normal shell
+# and interactive shell. Login shells read ~/.profile and interactive shells
+# read ~/.bashrc; in our setup, /etc/profile sources ~/.bashrc - thus all
+# settings made here will also take effect in a login shell.
+#
+# NOTE: It is recommended to make language settings in ~/.profile rather than
+# here, since multilingual X sessions would not work properly if LANG is over-
+# ridden in every subshell.
+
+test -s ~/.alias && . ~/.alias || true
+
+# Terminal colour
+# colours taken from https://github.com/shannonmoeller/vim-monokai256/blob/master/colors/monokai256.vim
+directory=$(tput setaf 81);
+hostname=$(tput setaf 161);
+user=$(tput setaf 118);
+
+# see also: https://github.com/CoreyMSchafer/dotfiles/blob/master/.bash_prompt
+bold=$(tput bold);
+reset=$(tput sgr0);
+white=$(tput setaf 15);
+
+PS1="\[${bold}\]"; 
+PS1+="\[${user}\]\u"; 
+PS1+="\[${white}\] @ ";
+PS1+="\[${hostname}\]\h"; 
+PS1+="\[${white}\] in ";
+PS1+="\[${directory}\]\W"; # working directory
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+export PS1;
