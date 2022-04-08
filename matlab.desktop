@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=MATLAB
+Exec=/opt/MATLAB/bin/matlab -desktop
+Icon=/home/njs/.icons/matlab_logo.png
+Terminal=false
+Type=Application
+Categories=Education;Math;
