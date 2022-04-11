@@ -24,9 +24,6 @@ addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
 addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
     filesep,'zte_recon'));
 
-addpath(strcat(userdir,filesep,'OneDrive',filesep,'matlab_SupportFiles',...
-        filesep,'Misc'));
-
 if ispc
 %% Add WSL2 Ubuntu-installed BART to path
     run('Z:\home\njs\bart\startup.m');
