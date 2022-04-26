@@ -1,3 +1,8 @@
+%STARTUP - script that runs when Matlab starts!
+%
+% NJS (TUoS) 2022
+
+disp('Running NJS startup.m...');
 
 %% Set-up paths independent of OS
 if ispc; userdir= getenv('USERPROFILE');
@@ -5,28 +10,26 @@ else; userdir= getenv('HOME');
 end
 
 % Github
-addpath(strcat(userdir,filesep,'Documents',filesep,'github',...
-    filesep,'Matlab_MRI'));
-addpath(strcat(userdir,filesep,'Documents',filesep,'github',...
-    filesep,'matlab-schemer'));
+disp('Loading Github paths...');
+base_string = strcat(userdir,filesep,'Documents',filesep,'github');
+addpath(strcat(base_string,filesep,'Matlab_MRI'));
+addpath(strcat(base_string,filesep,'matlab-schemer'));
 
 % Gitlab
-addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
-    filesep,'ge-rawdata',filesep,'read_mr_latest'));
-addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
-    filesep,'ge-rawdata',filesep,'orchestra-sdk-2.0-1.matlab'));
-addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
-    filesep,'philips-rawdata'));
-addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
-    filesep,'mns-research-pack'));
-addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
-    filesep,'tensor_toolbox'));
-addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
-    filesep,'zte_recon'));
-addpath(strcat(userdir,filesep,'Documents',filesep,'gitlab',...
-    filesep,'plab'));
+disp('Loading Gitlab paths...');
+base_string = strcat(userdir,filesep,'Documents',filesep,'gitlab');
+addpath(strcat(base_string,filesep,'ge-rawdata',filesep,'read_mr_latest'));
+addpath(strcat(base_string,filesep,'ge-rawdata',filesep,'orchestra-sdk-2.0-1.matlab'));
+addpath(strcat(base_string,filesep,'philips-rawdata'));
+addpath(strcat(base_string,filesep,'mns-research-pack'));
+addpath(strcat(base_string,filesep,'tensor_toolbox'));
+addpath(strcat(base_string,filesep,'zte_recon'));
+addpath(strcat(base_string,filesep,'plab'));
 
-if ispc
-%% Add WSL2 Ubuntu-installed BART to path
+%% Add WSL2 Ubuntu-installed BART to path % assume work PC
+if ispc 
+    disp('Trying to load WSL2 BART startup.m...');
     run('Z:\home\njs\bart\startup.m');
 end
+
+disp('Done...');
