@@ -26,10 +26,5 @@ addpath(strcat(base_string,filesep,'tensor_toolbox'));
 addpath(strcat(base_string,filesep,'zte_recon'));
 addpath(strcat(base_string,filesep,'plab'));
 
-%% Add WSL2 Ubuntu-installed BART to path % assume work PC
-if ispc 
-    disp('Trying to load WSL2 BART startup.m...');
-    run('Z:\home\njs\bart\startup.m');
-end
-
+clear;
 disp('Done...');
