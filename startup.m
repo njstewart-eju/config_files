@@ -38,13 +38,15 @@ for p = 1:length(paths)
     end
 end
 
-%% Add WSL2 Ubuntu-installed BART to path % assume work PC
+%% Add BART to path
+disp('Trying to run BART startup.m...');
 if ispc 
-    disp('Trying to load WSL2 BART startup.m...');
     bartPath = 'Z:\home\njs\bart\startup.m';
-    if isfile(bartPath)
-        run(bartPath);
-    end
+else
+    bartPath = '~/Documents/github/bart/startup.m';
+end
+if isfile(bartPath)
+    run(bartPath);
 end
 
 disp('Done...');
