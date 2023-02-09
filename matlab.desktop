@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=MATLAB_R2022a
-Exec=/opt/MATLAB/R2022a/bin/matlab -desktop
+Name=MATLAB_R2022b
+Exec=/opt/MATLAB/R2022b/bin/matlab -desktop
 Icon=/home/njs/.icons/matlab_logo.png
 Terminal=false
 Type=Application
