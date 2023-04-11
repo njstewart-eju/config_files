@@ -41,7 +41,10 @@ export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 
 # Python Path
-export PYTHONPATH=/home/njs/Documents/github/Python_Misc:/home/njs/Documents/github/Python_MRI
+export PYTHONPATH=/home/njs/Documents/github
+
+# Matlab Preferences
+export MATLAB_PREFDIR=/home/njs/.matlab/R2022b
 
 	#--------------------------------------------------
 	# Start of ESE environment setup for release MR29.1_R01 .
