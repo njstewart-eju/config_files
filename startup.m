@@ -27,8 +27,6 @@ for p = 1:length(paths)
     path = strcat(base_string,paths{p});
     if exist(path,'dir')
         addpath(path);
-    else
-        warning(['Path ' path ' does not exist...']);
     end
 end
 
@@ -47,8 +45,6 @@ for p = 1:length(paths)
     path = strcat(base_string,paths{p});
     if exist(path,'dir')
         addpath(path);
-    else
-        warning(['Path ' path ' does not exist...']);
     end
 end
 
