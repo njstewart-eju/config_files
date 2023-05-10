@@ -1,10 +1,10 @@
 [user]
-	name = N J Stewart
-	username = md1njst
-	email = neil.stewart@sheffield.ac.uk
+	name = njstewart-eju
+	username = njstewart-eju
+	email = zephyr853@gmail.com
 
 [core]
-	sshCommand = "ssh -i ~/.ssh/id_rsa_gitlab_sheffield"
+	sshCommand = "ssh -i ~/.ssh/id_rsa_github_personal"
 
 [includeIf "gitdir:~/Documents/github/"]
     path = ~/.gitconfig_github_personal
