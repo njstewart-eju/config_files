@@ -29,7 +29,7 @@ paths = {strcat(filesep,'philips-rawdata'),...
 for p = 1:length(paths)
     path = strcat(base_string,paths{p});
     if exist(path,'dir')
-        addpath(path);
+        addpath(genpath(path));
     end
 end
 
@@ -46,7 +46,7 @@ paths = {strcat(filesep,'tensor_toolbox'),...
 for p = 1:length(paths)
     path = strcat(base_string,paths{p});
     if exist(path,'dir')
-        addpath(path);
+        addpath(genpath(path));
     end
 end
 
