@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=ITK-SNAP
-Exec=/opt/itksnap-3.6.0-20170401-Linux-x86_64/bin/itksnap
-Icon=/home/njs/.icons/itk_logo.png
+Exec=/usr/local/itksnap-4.0.1-20230320-Linux-gcc64/bin/itksnap
+Icon=/home/njs/Documents/github/config_files/itk_logo.png
 Terminal=false
 Type=Application
 Categories=Education;Viewer;
