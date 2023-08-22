@@ -1,7 +1,6 @@
 %STARTUP - script that runs when Matlab starts!
 %
 % NJS (TUoS) 2022
-disp('Running NJS startup.m...');
 
 %% Set-up paths independent of OS
 if ispc; userdir= getenv('USERPROFILE');
@@ -9,7 +8,7 @@ else; userdir= getenv('HOME');
 end
 
 % Github
-disp('Loading Github paths...');
+disp('Loading NJS paths...');
 base_string = strcat(userdir,filesep,'Documents',filesep,'github');
 paths = {strcat(filesep,'philips-rawdata'),...
     strcat(filesep,'ge-rawdata',filesep,'read_mr_latest'),...
@@ -24,7 +23,8 @@ paths = {strcat(filesep,'philips-rawdata'),...
     strcat(filesep,'fasta-matlab'),...
     strcat(filesep,'fasta-matlab',filesep,'solvers'),...
     strcat(filesep,'tinycs'),...
-    strcat(filesep,'gl-hosvd',filesep,'RiceOptVST')
+    strcat(filesep,'gl-hosvd',filesep,'RiceOptVST'),...
+    strcat(filesep,'pulmonary-MRI-reconstruction')
     };
 for p = 1:length(paths)
     path = strcat(base_string,paths{p});
@@ -38,7 +38,6 @@ schemer_import(strcat(userdir,filesep,'Documents',filesep,'github',filesep,...
     'matlab-schemer',filesep,'schemes',filesep,'monokai.prf'));
 
 % Gitlab
-disp('Loading Gitlab paths...');
 base_string = strcat(userdir,filesep,'Documents',filesep,'gitlab');
 paths = {strcat(filesep,'tensor_toolbox'),...
     strcat(filesep,'plab')
@@ -48,17 +47,6 @@ for p = 1:length(paths)
     if exist(path,'dir')
         addpath(genpath(path));
     end
-end
-
-%% Add BART to path
-disp('Trying to run BART startup.m...');
-if ispc 
-    bartPath = 'Z:\home\njs\bart\startup.m';
-else
-    bartPath = '~/Documents/github/bart/startup.m';
-end
-if isfile(bartPath)
-    run(bartPath);
 end
 
 disp('Done...');

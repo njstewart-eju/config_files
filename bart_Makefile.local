@@ -1,0 +1,16 @@
+## Makefile.local
+# Makefile for my local build
+
+DEBUG=1
+
+# Parallel make
+PARALLEL=1
+
+# GPU
+CUDA=1
+CUDA_BASE=/usr/local/cuda-12.2
+CUDA_LIB=lib64
+
+# Library options
+OPENBLAS=1
+BLAS_THREADSAFE=1
