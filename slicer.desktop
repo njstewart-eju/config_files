@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Slicer
-Exec=/opt/Slicer-5.2.2-linux-amd64/Slicer
-Icon=/home/njs/Documents/github/config_files/slicer_logo.png
-Terminal=false
-Type=Application
-Categories=Education;Viewer;
