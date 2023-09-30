@@ -7,7 +7,7 @@ disp('Running NJS startup.m...');
 
 % Github
 disp('Loading Github paths...');
-base_string = '/shared/plus1/user/md1njst/github';
+base_string = '/shared/plus1/user/md1njst/github/';
 paths = dir(base_string);
 paths = paths(~ismember({paths.name},{'.','..'}));
 for p = 1:length(paths)
@@ -23,7 +23,7 @@ schemer_import(strcat(base_string,filesep,'matlab-schemer',filesep,...
 
 % Gitlab
 disp('Loading Gitlab paths...');
-base_string = '/shared/plus1/user/md1njst/gitlab';
+base_string = '/shared/plus1/user/md1njst/gitlab/';
 paths = dir(base_string);
 paths = paths(~ismember({paths.name},{'.','..'}));
 for p = 1:length(paths)
