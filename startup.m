@@ -19,6 +19,10 @@ for p = 1:length(paths)
     end
 end
 
+% Remove conflicting Ox path
+rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'orchestra-sdk-2.0-1.matlab')));
+
+
 % Matlab-Schemer
 schemer_import(strcat(userdir,filesep,'Documents',filesep,'github',filesep,...
     'matlab-schemer',filesep,'schemes',filesep,'monokai.prf'));
