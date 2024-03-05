@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=ITK-SNAP
-Exec=/usr/local/itksnap-4.0.1-20230320-Linux-gcc64/bin/itksnap
+Exec=/usr/local/itksnap-4.0.2-20230925-Linux-gcc64/bin/itksnap
 Icon=/home/njs/Documents/github/config_files/itk_logo.png
 Terminal=false
 Type=Application
