@@ -4,7 +4,7 @@ export PATH=$PATH:/opt/local/bin
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-alias sublime="open -a /Applications/Sublime\ Text.app"
+alias subl="open -a /Applications/Sublime\ Text.app"
 
 # Terminal colour
 # colours taken from https://github.com/shannonmoeller/vim-monokai256/blob/master/colors/monokai256.vim
