@@ -138,6 +138,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#NJS add Orchestra python path
+export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/ge-rawdata"
+
 #NJS add ~/.local/bin
 export PATH=/home/njs/.local/bin:${PATH}
 
