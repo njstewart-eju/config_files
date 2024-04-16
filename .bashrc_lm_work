@@ -155,7 +155,7 @@ export CUDA_PATH=/usr/local/cuda-12.2
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 #NJS add ITK-SNAP binaries
-export PATH=/usr/local/itksnap-4.0.1-20230320-Linux-gcc64/bin:${PATH}
+export PATH=/usr/local/itksnap-4.0.2-20230925-Linux-gcc64/bin:${PATH}
 
 #NJS add Matlab binary
 export PATH=/opt/MATLAB/R2023a/bin:${PATH}
@@ -166,6 +166,8 @@ export PATH=/opt/chromedriver_linux64:${PATH}
 #NJS add MIRTK path
 export MIRTK_SOURCE_DIR=/home/njs/Documents/github/MIRTK
 
+#NJS add Paraview path
+export PATH=/opt/ParaView-5.10.0-MPI-Linux-Python3.9-x86_64/bin:${PATH}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
