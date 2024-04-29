@@ -141,6 +141,9 @@ fi
 #NJS add from BART startup.sh script
 # set environment variables
 
+# Python Path for Orchestra
+export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/ge-rawdata"
+
 #export OMP_NUM_THREADS=23
 export TOOLBOX_PATH=/home/njs/Documents/bart-0.8.00
 export PATH=${TOOLBOX_PATH}:${PATH}
