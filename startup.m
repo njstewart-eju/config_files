@@ -20,8 +20,12 @@ for p = 1:length(paths)
 end
 
 % Remove conflicting Ox path
+disp('Removing conflicting paths...');
 rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'orchestra-sdk-2.0-1.matlab')));
-
+% Remove conflicting read_MR paths
+rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'read_mr14')));
+rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'read_mr23')));
+rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'read_MR_DV26_7T')));
 
 % Matlab-Schemer
 schemer_import(strcat(userdir,filesep,'Documents',filesep,'github',filesep,...
