@@ -159,7 +159,7 @@ export PATH=/opt/MATLAB/R2024a/bin:${PATH}
 #NJS add from BART startup.sh script
 # set environment variables
 #export OMP_NUM_THREADS=23
-#export TOOLBOX_PATH=/home/njs/Documents/bart-0.8.00
-#export PATH=${TOOLBOX_PATH}:${PATH}
+export TOOLBOX_PATH=/home/njs/Documents/bart-0.9.00
+export PATH=${TOOLBOX_PATH}:${PATH}
 
 
