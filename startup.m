@@ -27,6 +27,7 @@ rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-r
 rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'read_mr23')));
 rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'read_MR_DV26_7T')));
 rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'glhosvd')));
+rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'imoco_recon')));
 
 % Matlab-Schemer
 schemer_import(strcat(userdir,filesep,'Documents',filesep,'github',filesep,...
