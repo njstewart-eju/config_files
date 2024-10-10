@@ -44,4 +44,8 @@ for p = 1:length(paths)
     end
 end
 
+% plab
+disp('Trying to add plab...');
+addpath('/mnt/xdrive/plus1/slib/dev/plab/');
+
 disp('Done...');
