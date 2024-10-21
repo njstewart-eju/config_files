@@ -153,6 +153,9 @@ export PATH=/usr/local/itksnap-4.0.2-20230925-Linux-gcc64/bin:${PATH}
 #NJS add Matlab binaries
 export PATH=/opt/MATLAB/R2024a/bin:${PATH}
 
+#NJS add Slicer path
+export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
+
 #NJS Add ChromeDriver
 #export PATH=/opt/chromedriver_linux64:${PATH}
 
