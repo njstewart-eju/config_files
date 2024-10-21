@@ -175,6 +175,9 @@ export PATH=/home/njs/Documents/github/riesling/build:/home/njs/Documents/github
 #NJS add Paraview path
 export PATH=/opt/ParaView-5.10.0-MPI-Linux-Python3.9-x86_64/bin:${PATH}
 
+#NJS add Slicer path
+export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/njs/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
