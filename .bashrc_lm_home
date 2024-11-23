@@ -147,3 +147,5 @@ fi
 #NJS add ITK-SNAP binaries
 export PATH=/usr/local/itksnap-4.0.2-20230925-Linux-gcc64/bin:${PATH}
 
+#NJS add Slicer path
+export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
