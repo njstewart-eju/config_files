@@ -158,10 +158,13 @@ export CUDA_PATH=/usr/local/cuda-12.2
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 #NJS add ITK-SNAP binaries
-export PATH=/usr/local/itksnap-4.0.2-20230925-Linux-gcc64/bin:${PATH}
+export PATH=/opt/itksnap-4.2.2-20241202-Linux-x86_64/bin:${PATH}
 
 #NJS add Matlab binary
-export PATH=/opt/MATLAB/R2024a/bin:${PATH}
+export PATH=/opt/MATLAB/R2024b/bin:${PATH}
+
+#NJS add Zotero binary
+export PATH=/opt/Zotero_linux-x86_64:${PATH}
 
 #NJS Add ChromeDriver
 export PATH=/opt/chromedriver_linux64:${PATH}
@@ -171,6 +174,7 @@ export MIRTK_SOURCE_DIR=/home/njs/Documents/github/MIRTK
 
 #NJS add Riesling path
 export PATH=/home/njs/Documents/github/riesling/build:/home/njs/Documents/github/riesling-ox/build:${PATH}
+#export PATH=/home/njs/Documents/riesling-rox:${PATH}
 
 #NJS add Paraview path
 export PATH=/opt/ParaView-5.10.0-MPI-Linux-Python3.9-x86_64/bin:${PATH}
