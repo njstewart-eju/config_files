@@ -169,3 +169,7 @@ export PATH=${TOOLBOX_PATH}:${PATH}
 export PATH=/usr/local/texlive/2024/bin/x86_64-linux:${PATH}
 export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
+
+# NJS: Python UV shell completion
+eval "$(uv generate-shell-completion bash)"
+eval "$(uvx --generate-shell-completion bash)"
