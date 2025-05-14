@@ -1,4 +1,4 @@
-" General Options
+" General vim options
 set nocompatible
 filetype plugin on
 syntax on
@@ -8,15 +8,16 @@ set mouse=nv
 set tabstop=4
 set autoindent
 
-" Vimplug
+" Vimplug plugins
 call plug#begin()
 
+" Currently unused plugins...
 " Plug 'vimwiki/vimwiki'
 
-" Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-
+" Active plugins...
 Plug 'crusoexia/vim-monokai'
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex', { 'tag': 'v2.15' }
 
 call plug#end()
@@ -24,7 +25,10 @@ call plug#end()
 " Themes
 colorscheme monokai
 
-" VimTeX
+" Vim-Airline settings
+let g:airline_theme='minimalist'
+
+" VimTeX settings
 " let g:vimtex_view_general_viewer = 'okular'
 " let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let maplocalleader = ","
