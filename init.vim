@@ -7,6 +7,8 @@ set relativenumber
 set mouse=nv
 set tabstop=4
 set autoindent
+" For .e (EPIC) files to show with C syntax
+au BufRead,BufNewFile *.e set filetype=c
 
 " Vimplug plugins
 call plug#begin()

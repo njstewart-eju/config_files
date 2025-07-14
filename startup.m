@@ -9,43 +9,29 @@ end
 
 % Github
 disp('Loading NJS paths...');
-base_string = strcat(userdir,filesep,'Documents',filesep,'github',filesep);
-paths = dir(base_string);
-paths = paths(~ismember({paths.name},{'.','..'}));
-for p = 1:length(paths)
-    path = strcat(base_string,paths(p).name);
-    if exist(path,'dir')
-        addpath(genpath(path));
-    end
-end
+base_string = fullfile(userdir,'Documents','github');
 
-% Remove conflicting Ox path
-disp('Removing conflicting paths...');
-rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'orchestra-sdk-2.0-1.matlab')));
-% Remove conflicting read_MR paths
-rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'read_mr14')));
-rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'read_mr23')));
-rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'ge-rawdata',filesep,'read_MR_DV26_7T')));
-rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'glhosvd')));
-rmpath(genpath(strcat(userdir,filesep,'Documents',filesep,'github',filesep,'imoco_recon')));
+addpath(genpath(fullfile(base_string,'fasta-matlab')));
+addpath(genpath(fullfile(base_string,'ge-rawdata','orchestra-sdk-2.1-1.matlab')));
+addpath(genpath(fullfile(base_string,'ge-rawdata','read_mr_latest')));
+addpath(genpath(fullfile(base_string,'ismrmd')));
+addpath(genpath(fullfile(base_string,'Matlab_MRI')));
+addpath(genpath(fullfile(base_string,'matlab-schemer')));
+addpath(genpath(fullfile(base_string,'mns-research-pack')));
+addpath(genpath(fullfile(base_string,'ute-utilities')));
+addpath(genpath(fullfile(base_string,'teaching-resources')));
+addpath(genpath(fullfile(base_string,'toppe')));
 
 % Matlab-Schemer
-schemer_import(strcat(userdir,filesep,'Documents',filesep,'github',filesep,...
-    'matlab-schemer',filesep,'schemes',filesep,'monokai.prf'));
-
-% Gitlab
-base_string = strcat(userdir,filesep,'Documents',filesep,'gitlab',filesep);
-paths = dir(base_string);
-paths = paths(~ismember({paths.name},{'.','..'}));
-for p = 1:length(paths)
-    path = strcat(base_string,paths(p).name);
-    if exist(path,'dir')
-        addpath(genpath(path));
-    end
-end
+schemer_import(fullfile(userdir,'Documents','github','matlab-schemer','schemes','monokai.prf'));
 
 % plab
-disp('Trying to add plab...');
-addpath('/mnt/xdrive/plus1/slib/dev/plab/');
+plab_path = '/mnt/xdrive/plus1/slib/dev/plab/';
+if exist(plab_path,'dir')
+	disp('Adding plab to path..');
+	addpath('/mnt/xdrive/plus1/slib/dev/plab/');
+else
+	disp('plab could not be added to path...');
+end
 
 disp('Done...');
