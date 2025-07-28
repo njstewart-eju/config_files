@@ -9,6 +9,7 @@ set tabstop=4
 set autoindent
 " For .e (EPIC) files to show with C syntax
 au BufRead,BufNewFile *.e set filetype=c
+au BufRead,BufNewFile *.m4 set filetype=c
 
 " Vimplug plugins
 call plug#begin()
