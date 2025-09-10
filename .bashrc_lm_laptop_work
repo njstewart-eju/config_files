@@ -148,7 +148,7 @@ export PATH=/home/njs/.local/bin:${PATH}
 export PATH=/opt/bin:${PATH}
 
 #NJS add ITK-SNAP binaries
-export PATH=/opt/itksnap-4.2.2-20241202-Linux-x86_64/bin:${PATH}
+export PATH=/opt/itksnap-4.4.0-20250909-Linux-x86_64/bin:${PATH}
 
 #NJS add Matlab binaries
 export PATH=/opt/MATLAB/R2024a/bin:${PATH}
@@ -173,3 +173,6 @@ export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
 # NJS: Python UV shell completion
 eval "$(uv generate-shell-completion bash)"
 eval "$(uvx --generate-shell-completion bash)"
+
+#NJS golang
+export PATH=$PATH:/usr/local/go/bin
