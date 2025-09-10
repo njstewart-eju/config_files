@@ -1,0 +1,39 @@
+# RUFF config file adapted from: https://github.com/CoreyMSchafer/dotfiles/blob/master/settings/ruff.toml
+# njstewart-eju
+
+# RUFF DEFAULTS
+# (These are all the default groups, even if you don’t currently select them)
+# select = [
+#     "F",    # Pyflakes – detects syntax errors and basic mistakes
+#     "E4",   # Pycodestyle errors (part of E group)
+#     "E7",   # Pycodestyle E7xx errors (naming, etc.)
+#     "E9",   # Pycodestyle E9xx errors (syntax)
+# ]
+
+lint.extend-select = [
+    "E",    # Pycodestyle errors (style issues)
+    "W",    # Pycodestyle warnings (style issues)
+    "I",    # isort – import ordering checks
+    "N",    # PEP8 Naming – naming conventions
+    "D",    # Pydocstyle – docstring formatting
+    "UP",   # Pyupgrade – upgrades syntax to newer Python versions
+    "A",    # Flake8-builtins – misuse of Python built-in names
+    "COM",  # Flake8-commas – trailing/comma issues
+    "ISC",  # Flake8-implicit-str-concat – warns on implicit string concatenation
+    "LOG",  # Flake8-logging – proper logging usage
+    "G",    # Flake8-logging-format – logging format string issues
+    "ARG",  # Flake8-unused-arguments – flags unused function arguments
+    "PTH",  # Flake8-use-pathlib – encourages pathlib over os.path
+    "PD",   # Pandas-vet – checks pandas-specific code practices
+    "TRY",  # Tryceratops – try/except usage suggestions
+    "FLY",  # Flynt – f-string conversion suggestions
+    "NPY",  # NumPy-specific rules – ensures NumPy coding standards
+]
+
+lint.ignore = [
+    "E501",  # Pycodestyle - line too long
+    "D1",    # Pydocstyle - missing docstring in public module, class, or function
+    "D203",  # Pydocstyle - one blank line required before class docstring
+    "D212",  # Pydocstyle - summary line should be immediately after the opening quotes.
+    "D401",  # Pydocstyle - Checks for docstring first lines that are not in an imperative mood.
+]
