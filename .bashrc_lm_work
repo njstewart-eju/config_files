@@ -75,15 +75,14 @@ bold=$(tput bold);
 reset=$(tput sgr0);
 white=$(tput setaf 15);
 
-PS1="\[${bold}\]"; 
-PS1+="\[${user}\]\u"; 
+PS1="\[${bold}\]";
+PS1+="\[${user}\]\u";
 PS1+="\[${white}\] @ ";
-PS1+="\[${hostname}\]\h"; 
+PS1+="\[${hostname}\]\h";
 PS1+="\[${white}\] in ";
 PS1+="\[${directory}\]\W"; # working directory
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
-
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -152,13 +151,12 @@ export PATH=${TOOLBOX_PATH}:${PATH}
 export PATH=/opt/bin:${PATH}
 
 #NJS add cuda env
-export PATH=/usr/local/cuda-12.2/bin${PATH:+:${PATH}}
-
-export CUDA_PATH=/usr/local/cuda-12.2
+export PATH=${PATH}:/usr/local/cuda-13.0/bin
+export CUDA_PATH=/usr/local/cuda-13.0
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 #NJS add ITK-SNAP binaries
-export PATH=/opt/itksnap-4.2.2-20241202-Linux-x86_64/bin:${PATH}
+export PATH=/opt/itksnap-4.4.0-20250909-Linux-x86_64/bin:${PATH}
 
 #NJS add Matlab binary
 export PATH=/opt/MATLAB/R2024b/bin:${PATH}
@@ -180,7 +178,7 @@ export MIRTK_SOURCE_DIR=/home/njs/Documents/github/MIRTK
 export PATH=/opt/ParaView-5.10.0-MPI-Linux-Python3.9-x86_64/bin:${PATH}
 
 #NJS add Slicer path
-export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
+export PATH=/opt/Slicer-5.8.1-linux-amd64:${PATH}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
