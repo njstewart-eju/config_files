@@ -138,6 +138,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+#NJS flatpak run aliases
+alias okular='flatpak run org.kde.okular'
+alias firefox='flatpak run org.mozilla.firefox'
+alias gimp='flatpak run org.gimp.GIMP'
+
 #NJS add Orchestra python path
 export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/ge-rawdata"
 
@@ -155,6 +161,9 @@ export PATH=/opt/MATLAB/R2024a/bin:${PATH}
 
 #NJS add Slicer path
 export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
+
+# NJS put imagemagick appimage in /opt/bin
+export PATH=/opt/bin:${PATH}
 
 #NJS Add ChromeDriver
 #export PATH=/opt/chromedriver_linux64:${PATH}
