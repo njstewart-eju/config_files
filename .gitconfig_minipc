@@ -1,7 +1,0 @@
-[user]
-	name = njstewart-eju
-	username = njstewart-eju
-	email = zephyr853@gmail.com
-
-[core]
-	sshCommand = "ssh -i ~/.ssh/id_github"

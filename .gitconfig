@@ -4,10 +4,4 @@
 	email = zephyr853@gmail.com
 
 [core]
-	sshCommand = "ssh -i ~/.ssh/id_rsa_github_personal"
-
-[includeIf "gitdir:~/Documents/github/"]
-    path = ~/.gitconfig_github_personal
-
-[includeIf "gitdir:~/Documents/gitlab/"]
-    path = ~/.gitconfig_gitlab_work
+	sshCommand = "ssh -i ~/.ssh/id_github"

@@ -1,7 +1,0 @@
-[user]
-	name = N J Stewart
-	username = md1njst
-	email = neil.stewart@sheffield.ac.uk
-
-[core]
-	sshCommand = "ssh -i ~/.ssh/id_rsa_gitlab_sheffield"

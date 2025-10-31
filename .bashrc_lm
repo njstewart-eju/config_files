@@ -182,8 +182,10 @@ export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
 
 # NJS: Python UV shell completion
-eval "$(uv generate-shell-completion bash)"
-eval "$(uvx --generate-shell-completion bash)"
+if [ -x "$(command -v uv)" ]; then
+		eval "$(uv generate-shell-completion bash)"
+		eval "$(uvx --generate-shell-completion bash)"
+fi
 
 #NJS golang
 export PATH=$PATH:/usr/local/go/bin
