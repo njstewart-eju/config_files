@@ -143,6 +143,8 @@ fi
 alias okular='flatpak run org.kde.okular'
 alias firefox='flatpak run org.mozilla.firefox'
 alias gimp='flatpak run org.gimp.GIMP'
+alias vim='flatpak run io.neovim.nvim'
+alias nv='flatpak run io.neovim.nvim'
 
 #NJS add Orchestra python path
 export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/ge-rawdata"
