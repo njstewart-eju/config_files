@@ -34,4 +34,11 @@ else
 	disp('plab could not be added to path...');
 end
 
+% Bart
+bart_path = fullfile(base_string,'bart');
+addpath(fullfile(bart_path,'matlab'));
+% Assuming bart is in /usr/bin as installed via apt so don't need to set BART_TOOLBOX_PATH.
+% If instead we want to use the bart in bart_path, run the below.
+% setenv('BART_TOOLBOX_PATH', bart_path);
+
 disp('Done...');
