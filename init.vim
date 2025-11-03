@@ -7,6 +7,7 @@ set relativenumber
 set mouse=nv
 set tabstop=4
 set autoindent
+set spell
 " For .e (EPIC) files to show with C syntax
 au BufRead,BufNewFile *.e set filetype=c
 au BufRead,BufNewFile *.m4 set filetype=c
