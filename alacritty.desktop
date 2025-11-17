@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Alacritty
+GenericName=Terminal
+Exec=alacritty
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Icon=utilities-terminal
+Categories=System;TerminalEmulator;
+Keywords=shell;prompt;command;commandline;cmd;
