@@ -188,4 +188,3 @@ export PATH=$PATH:/usr/local/go/bin
 
 #NJS ANTS binaries
 export PATH=$PATH:/opt/ants-2.6.3/bin
-. "$HOME/.cargo/env"
