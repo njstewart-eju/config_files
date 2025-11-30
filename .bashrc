@@ -118,10 +118,6 @@ fi
 
 #NJS flatpak run aliases
 alias okular='flatpak run org.kde.okular'
-alias firefox='flatpak run org.mozilla.firefox'
-alias gimp='flatpak run org.gimp.GIMP'
-alias vim='flatpak run io.neovim.nvim'
-alias nv='flatpak run io.neovim.nvim'
 
 #NJS add Orchestra python path
 export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/ge-rawdata"
@@ -144,9 +140,6 @@ export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
 # NJS put imagemagick appimage in /opt/bin
 export PATH=/opt/bin:${PATH}
 
-#NJS Add ChromeDriver
-#export PATH=/opt/chromedriver_linux64:${PATH}
-#
 #NJS add Zotero binary
 export PATH=/opt/Zotero_linux-x86_64:${PATH}
 
@@ -155,10 +148,6 @@ export PATH=/opt/chromedriver_linux64:${PATH}
 
 #NJS add MIRTK path
 export MIRTK_SOURCE_DIR=/home/njs/Documents/github/MIRTK
-
-#NJS add Riesling path
-#export PATH=/home/njs/Documents/github/riesling/build:/home/njs/Documents/github/riesling-ox/build:${PATH}
-#export PATH=/home/njs/Documents/riesling-rox:${PATH}
 
 #NJS add Paraview path
 export PATH=/opt/ParaView-5.10.0-MPI-Linux-Python3.9-x86_64/bin:${PATH}
