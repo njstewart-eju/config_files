@@ -24,13 +24,22 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, qtile, widget
+# NJS: monitoring in bar using htop (see dt)
+import os
+import subprocess
+
+from libqtile import bar, layout, qtile, widget 
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+# NJS: add backlight
+from libqtile.widget import backlight
+
+# NJS: gruvbox colorscheme
+from gruvbox import *
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "alacritty"
+browser = "firefox"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -65,6 +74,8 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    # NJS: shortcut for browser
+    Key([mod], "b", lazy.spawn(browser), desc="Launch web browser"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
@@ -78,6 +89,10 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    # NJS: add backlight controls (see: )
+    Key([],"XF86MonBrightnessUp",lazy.widget['backlight'].change_backlight(backlight.ChangeDirection.UP)),
+    Key([],"XF86MonBrightnessDown",lazy.widget['backlight'].change_backlight(backlight.ChangeDirection.DOWN)),
+
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -120,15 +135,24 @@ for i in groups:
         ]
     )
 
+# NJS: layout_theme from DT (https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/qtile/config.py), edited for gruvbox theme in .config
+
+layout_theme = {"border_width": 2,
+                "margin": 10,
+                "border_focus": colors_gb[purple],
+                "border_normal": colors_gb[bg]
+                }
+
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    layout.Max(**layout_theme),
     # Try more layouts by unleashing below layouts.
+    # layout.Tile(**layout_theme),
+    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
@@ -136,34 +160,91 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+# NJS: edit colors and font as per DT
 widget_defaults = dict(
-    font="sans",
+    font="Ubuntu Bold",
     fontsize=12,
     padding=3,
+    background=colors_gb[bg]
 )
 extension_defaults = widget_defaults.copy()
 
+# NJS: styling inspired by DT but with gruvbox colors
 screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
+                widget.CurrentLayout(
+                    foreground = colors_gb[yellow],
+                    padding = 5
+                    ),
+                widget.GroupBox(
+                    fontsize = 11,
+                    margin_y = 5,
+                    margin_x = 14,
+                    padding_y = 0,
+                    padding_x = 2,
+                    borderwidth = 3,
+                    #active = colors[8],
+                    #inactive = colors[9],
+                    rounded = False,
+                    highlight_color = colors_gb[purple],
+                    highlight_method = "line",
+                    this_current_screen_border = colors_gb[bg],
+                    #this_screen_border = colors [4],
+                    #other_current_screen_border = colors[7],
+                    #other_screen_border = colors[4]
+                    ),
+                widget.Prompt(
+                    font = "Ubuntu Mono",
+                    fontsize=14,
+                    foreground = colors_gb[yellow]
+                    ),
+                widget.WindowName(
+                    foreground = colors_gb[aqua],
+                    padding = 8,
+                    max_chars = 40
+                    ),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                ),#
+
+                # NJS: widgets taken from DT's config with colors changed
+                widget.CPU(
+                         foreground = colors_gb[orange],
+                         padding = 8, 
+                         format = 'Cpu: {load_percent}%',
+                         ),
+                widget.Memory(
+                         foreground = colors_gb[yellow],
+                         padding = 8, 
+                         format = '{MemUsed: .0f}{mm}',
+                         fmt = 'Mem: {}',
+                         ),
+                widget.Volume(
+                         foreground = colors_gb[green],
+                         padding = 8, 
+                         fmt = 'Vol: {}',
+                         ),
+                # NJS: add battery icom
+                widget.BatteryIcon(
+                        padding = 4,
+                        ),
+                # NJS: add backlight
+                #widget.TextBox("default config", name="default"),
+                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.Systray(padding=6),
+                widget.Clock(
+                        foreground = colors_gb[purple],
+                        padding = 8,
+                        format="%Y-%m-%d %a %I:%M %p",
+                        ),
+                # widget.QuickExit(),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -190,6 +271,10 @@ bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
 floating_layout = layout.Floating(
+    # NJS: add styling
+    border_focus=colors_gb[yellow],
+    border_normal=colors_gb[bg],
+    border_width=2,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
