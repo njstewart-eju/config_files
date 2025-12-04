@@ -24,6 +24,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# NJS edited with lots of copying and or inspiration from:
+# https://codeberg.org/justaguylinux/qtile-setup/src/branch/main/qtile/config.py 
+# and
+# https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/qtile/config.py
+
 # NJS: monitoring in bar using htop (see dt)
 import os
 import subprocess
@@ -74,8 +79,19 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+
+    # NJS: start rofi (from JustAGuyLinux with theme selection and show icons removed)
+    Key([mod], "space", lazy.spawn("rofi -show drun -modi drun -line-padding 4 -hide-scrollbar"), desc="Launch Rofi"),
+    # NJS: other launchers (from JustAGuyLinux for GIMP and added Inkscape, Nemo etc.)
+    Key([mod], "g", lazy.spawn("gimp"), desc="Launch GIMP"),
+    Key([mod], "i", lazy.spawn("inkscape"), desc="Launch Inkscape"),
+    Key([mod], "n", lazy.spawn("nemo"), desc="Launch Nemo"),
+    Key([mod], "c", lazy.spawn("galculator"), desc="Launch Galculator"),
     # NJS: shortcut for browser
     Key([mod], "b", lazy.spawn(browser), desc="Launch web browser"),
+    # NJS: power off / reboot etc script from JustAGuyLinux - stored in misc_scripts github
+    Key([mod], "x", lazy.spawn(os.path.expanduser("~/Documents/github/misc_scripts/power")), desc="Power menu"),
+
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
@@ -89,10 +105,14 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    # NJS: add backlight controls (see: )
-    Key([],"XF86MonBrightnessUp",lazy.widget['backlight'].change_backlight(backlight.ChangeDirection.UP)),
-    Key([],"XF86MonBrightnessDown",lazy.widget['backlight'].change_backlight(backlight.ChangeDirection.DOWN)),
+    # NJS: add backlight controls (JustAGuyLinux)
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight +10"), desc="Brightness up"),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -10"), desc="Brightness down"),
 
+    # NJS: add control of monitors from DT
+    # Switch focus of monitors
+    Key([mod], "period", lazy.next_screen(), desc='Move focus to next monitor'),
+    Key([mod], "comma", lazy.prev_screen(), desc='Move focus to prev monitor'),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -169,93 +189,168 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# NJS: replace original screen calls with DTs init_widgets_list and calling for each screen
+#screens = [
+#    Screen(
+#        bottom=bar.Bar(
+def init_widgets_list():
 # NJS: styling inspired by DT but with gruvbox colors
-screens = [
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(
-                    foreground = colors_gb[yellow],
-                    padding = 5
-                    ),
-                widget.GroupBox(
-                    fontsize = 11,
-                    margin_y = 5,
-                    margin_x = 14,
-                    padding_y = 0,
-                    padding_x = 2,
-                    borderwidth = 3,
-                    #active = colors[8],
-                    #inactive = colors[9],
-                    rounded = False,
-                    highlight_color = colors_gb[purple],
-                    highlight_method = "line",
-                    this_current_screen_border = colors_gb[bg],
-                    #this_screen_border = colors [4],
-                    #other_current_screen_border = colors[7],
-                    #other_screen_border = colors[4]
-                    ),
-                widget.Prompt(
-                    font = "Ubuntu Mono",
-                    fontsize=14,
-                    foreground = colors_gb[yellow]
-                    ),
-                widget.WindowName(
-                    foreground = colors_gb[aqua],
-                    padding = 8,
-                    max_chars = 40
-                    ),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),#
+    widgets_list = [
+        widget.CurrentLayout(
+            foreground = colors_gb[yellow],
+            padding = 5
+            ),
+        widget.GroupBox(
+            fontsize = 11,
+            margin_y = 5,
+            margin_x = 14,
+            padding_y = 0,
+            padding_x = 2,
+            borderwidth = 3,
+            #active = colors[8],
+            #inactive = colors[9],
+            rounded = False,
+            highlight_color = colors_gb[purple],
+            highlight_method = "line",
+            this_current_screen_border = colors_gb[bg],
+            #this_screen_border = colors [4],
+            #other_current_screen_border = colors[7],
+            #other_screen_border = colors[4]
+            ),
+        widget.Prompt(
+            font = "Ubuntu Mono",
+            fontsize=14,
+            foreground = colors_gb[yellow]
+            ),
+        widget.WindowName(
+            foreground = colors_gb[aqua],
+            padding = 8,
+            max_chars = 40
+            ),
+        widget.Chord(
+            chords_colors={
+                "launch": ("#ff0000", "#ffffff"),
+            },
+            name_transform=lambda name: name.upper(),
+        ),#
 
-                # NJS: widgets taken from DT's config with colors changed
-                widget.CPU(
-                         foreground = colors_gb[orange],
-                         padding = 8, 
-                         format = 'Cpu: {load_percent}%',
-                         ),
-                widget.Memory(
-                         foreground = colors_gb[yellow],
-                         padding = 8, 
-                         format = '{MemUsed: .0f}{mm}',
-                         fmt = 'Mem: {}',
-                         ),
-                widget.Volume(
-                         foreground = colors_gb[green],
-                         padding = 8, 
-                         fmt = 'Vol: {}',
-                         ),
-                # NJS: add battery icom
-                widget.BatteryIcon(
-                        padding = 4,
-                        ),
-                # NJS: add backlight
-                #widget.TextBox("default config", name="default"),
-                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(padding=6),
-                widget.Clock(
-                        foreground = colors_gb[purple],
-                        padding = 8,
-                        format="%Y-%m-%d %a %I:%M %p",
-                        ),
-                # widget.QuickExit(),
-            ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        # NJS: widgets taken from DT's config with colors changed
+        widget.CPU(
+                 foreground = colors_gb[orange],
+                 padding = 8, 
+                 format = 'Cpu: {load_percent}%',
+                 ),
+        widget.Memory(
+                 foreground = colors_gb[yellow],
+                 padding = 8, 
+                 format = '{MemUsed: .0f}{mm}',
+                 fmt = 'Mem: {}',
+                 ),
+        # NJS: volume from JustaGuy Linux config
+        widget.Volume(
+            fmt="{}",
+            mute_command="pamixer -t",
+            volume_up_command="pamixer -i 2",
+            volume_down_command="pamixer -d 2",
+            get_volume_command="pamixer --get-volume-human",
+            check_mute_command="pamixer --get-mute",
+            check_mute_string="true",
+            foreground = colors_gb[green],
+            padding=2
         ),
-        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
-        # By default we handle these events delayed to already improve performance, however your system might still be struggling
-        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-        # x11_drag_polling_rate = 60,
-    ),
-]
+        # NJS: add battery icom
+        widget.BatteryIcon(
+                padding = 4,
+                ),
+        # NJS: add backlight
+        #widget.TextBox("default config", name="default"),
+        #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+        # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+        # widget.StatusNotifier(),
+        # NJS: add bluetooth
+        widget.Bluetooth(
+                foreground = colors_gb[blue],
+                padding = 8,
+                ),
+        widget.Clock(
+                foreground = colors_gb[purple],
+                padding = 8,
+                format="%Y-%m-%d %a %I:%M %p",
+                ),
+        widget.Systray(padding=6),
+        # widget.QuickExit(),
+        ]
+    return widgets_list
+
+# NJS: start copy from DT config for multi-screens
+def init_widgets_screen1():
+    widgets_screen1 = init_widgets_list()
+    return widgets_screen1 
+
+# NJS: second monitor
+def init_widgets_list_screen2():
+# NJS: styling inspired by DT but with gruvbox colors
+    widgets_list = [
+        widget.CurrentLayout(
+            foreground = colors_gb[yellow],
+            fontsize = 8,
+            padding = 5
+            ),
+        widget.GroupBox(
+            fontsize = 8,
+            margin_y = 3,
+            margin_x = 8,
+            padding_y = 0,
+            padding_x = 1,
+            borderwidth = 2,
+            #active = colors[8],
+            #inactive = colors[9],
+            rounded = False,
+            highlight_color = colors_gb[purple],
+            highlight_method = "line",
+            this_current_screen_border = colors_gb[bg],
+            #this_screen_border = colors [4],
+            #other_current_screen_border = colors[7],
+            #other_screen_border = colors[4]
+            ),
+        widget.Prompt(
+            font = "Ubuntu Mono",
+            fontsize=10,
+            foreground = colors_gb[yellow]
+            ),
+        widget.WindowName(
+            foreground = colors_gb[aqua],
+            fontsize = 8,
+            padding = 4,
+            max_chars = 40
+            ),
+        widget.Chord(
+            chords_colors={
+                "launch": ("#ff0000", "#ffffff"),
+            },
+            name_transform=lambda name: name.upper(),
+        ),
+        ]
+    return widgets_list
+
+def init_widgets_screen2():
+    widgets_screen2 = init_widgets_list_screen2()
+    return widgets_screen2
+
+# For adding transparency to your bar, add (background="#00000000") to the "Screen" line(s)
+# For ex: Screen(top=bar.Bar(widgets=init_widgets_screen2(), background="#00000000", size=24)),
+
+def init_screens():
+    return [Screen(bottom=bar.Bar(widgets=init_widgets_screen1(), margin=[8, 12, 0, 12], size=30)),
+            Screen(bottom=bar.Bar(widgets=init_widgets_screen2(), margin=[4, 6, 0, 6], size=15))]
+
+if __name__ in ["config", "__main__"]:
+    screens = init_screens()
+    widgets_list = init_widgets_list()
+    widgets_screen1 = init_widgets_screen1()
+    widgets_screen2 = init_widgets_screen2()
+
+# NJS: end copy from DT config
 
 # Drag floating layouts.
 mouse = [
@@ -281,6 +376,8 @@ floating_layout = layout.Floating(
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
+        Match(wm_class="Galculator"),  # NJS: add calculator
+        Match(wm_class="qimgv"),  # NJS: add q image viewer
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
@@ -310,3 +407,9 @@ wl_xcursor_size = 24
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+
+
+# NJS: TO DO!
+# For brightness control - replace with xrandr command? 
+# Change screen 2 bar size and font?
