@@ -1,0 +1,6 @@
+    configuration {
+	    location: 0;
+	    font: "Noto Mono 12";	
+	    display-drun: "Launch:";
+    }
+@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
