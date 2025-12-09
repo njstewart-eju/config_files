@@ -115,6 +115,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Christmas Tree
+alias xmas='/home/njs/Documents/github/ascii-christmas-tree/ascii-christmas-tree'
 
 #NJS flatpak run aliases
 alias okular='flatpak run org.kde.okular'
@@ -132,7 +134,7 @@ export PATH=/opt/bin:${PATH}
 export PATH=/opt/itksnap-4.4.0-20250909-Linux-x86_64/bin:${PATH}
 
 #NJS add Matlab binaries
-export PATH=/opt/MATLAB/R2024a/bin:${PATH}
+export PATH=/opt/MATLAB/R2025b/bin:${PATH}
 
 #NJS add Slicer path
 export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
@@ -166,14 +168,16 @@ export PATH=/usr/local/texlive/2024/bin/x86_64-linux:${PATH}
 export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
 
-# NJS: Python UV shell completion
+# Python UV shell completion
 if [ -x "$(command -v uv)" ]; then
 		eval "$(uv generate-shell-completion bash)"
 		eval "$(uvx --generate-shell-completion bash)"
 fi
 
-#NJS golang
+# golang
 export PATH=$PATH:/usr/local/go/bin
 
-#NJS ANTS binaries
+# ANTS binaries
 export PATH=$PATH:/opt/ants-2.6.3/bin
+
+
