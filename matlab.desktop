@@ -1,7 +1,8 @@
 [Desktop Entry]
-Name=MATLAB_R2023a
-Exec=/usr/local/MATLAB/R2023a/bin/matlab -desktop
+Name=MATLAB_R2025b
+Exec=/opt/MATLAB/R2025b/bin/matlab -desktop
 Icon=/home/njs/Documents/github/config_files/matlab_logo.png
 Terminal=false
 Type=Application
 Categories=Education;Math;
+Name[en_GB]=matlab_2025b.desktop
