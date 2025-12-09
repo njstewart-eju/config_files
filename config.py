@@ -29,9 +29,6 @@
 # and
 # https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/qtile/config.py
 
-# NJS: monitoring in bar using htop (see dt)
-from pathlib import Path
-
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -104,7 +101,7 @@ keys = [
     # NJS: shortcut for browser
     Key([mod], "b", lazy.spawn(browser), desc="Launch web browser"),
     # NJS: power off / reboot etc script from JustAGuyLinux - stored in misc_scripts github
-    Key([mod], "x", lazy.spawn(Path.expanduser("~/Documents/github/misc_scripts/power")), desc="Power menu"),
+    Key([mod], "x", lazy.spawn("/home/njs/Documents/github/misc_scripts/power"), desc="Power menu"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
