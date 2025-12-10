@@ -140,7 +140,7 @@ for vt in range(1, 8):
     )
 
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "123456"] # NJS unlikely to use more than 6 groups!
 
 for i in groups:
     keys.extend(
