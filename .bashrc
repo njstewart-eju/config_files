@@ -177,6 +177,9 @@ fi
 # golang
 export PATH=$PATH:/usr/local/go/bin
 
+# zig
+export PATH=$PATH:/opt/zig
+
 # ANTS binaries
 export PATH=$PATH:/opt/ants-2.6.3/bin
 
