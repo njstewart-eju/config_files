@@ -25,22 +25,33 @@
 # SOFTWARE.
 
 # NJS edited with lots of copying and or inspiration from:
-# https://codeberg.org/justaguylinux/qtile-setup/src/branch/main/qtile/config.py 
+# https://codeberg.org/justaguylinux/qtile-setup/src/branch/main/qtile/config.py
 # and
 # https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/qtile/config.py
 
-# NJS: monitoring in bar using htop (see dt)
-import os
-import subprocess
-
-from libqtile import bar, layout, qtile, widget 
+from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-# NJS: add backlight
-from libqtile.widget import backlight
 
 # NJS: gruvbox colorscheme
-from gruvbox import *
+# from: https://github.com/egujito/qtile/blob/master/gruvbox.py
+colors_gb  = ["#282828", # background
+          "#b85651", # red
+          "#bd6f3e", # orange
+          "#c18f41", # yellow
+          "#8f9a52", # green
+          "#72966c", # aqua
+          "#68948a", # blue
+          "#ab6c7d"] # purple
+bg = 0
+red = 1
+orange = 2
+yellow = 3
+green = 4
+aqua = 5
+blue = 6
+purple = 7
+
 
 mod = "mod4"
 terminal = "alacritty"
@@ -90,7 +101,7 @@ keys = [
     # NJS: shortcut for browser
     Key([mod], "b", lazy.spawn(browser), desc="Launch web browser"),
     # NJS: power off / reboot etc script from JustAGuyLinux - stored in misc_scripts github
-    Key([mod], "x", lazy.spawn(os.path.expanduser("~/Documents/github/misc_scripts/power")), desc="Power menu"),
+    Key([mod], "x", lazy.spawn("/home/njs/Documents/github/misc_scripts/power"), desc="Power menu"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
@@ -125,11 +136,11 @@ for vt in range(1, 8):
             f"f{vt}",
             lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
             desc=f"Switch to VT{vt}",
-        )
+        ),
     )
 
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "123456"] # NJS unlikely to use more than 6 groups!
 
 for i in groups:
     keys.extend(
@@ -142,17 +153,22 @@ for i in groups:
                 desc=f"Switch to group {i.name}",
             ),
             # mod + shift + group number = switch to & move focused window to group
+            #Key(
+            #    [mod, "shift"],
+            #    i.name,
+            #    lazy.window.togroup(i.name, switch_group=True),
+            #    desc=f"Switch to & move focused window to group {i.name}",
+            #),
+            # Or, use below if you prefer not to switch to that group.
+            # # mod + shift + group number = move focused window to group
+            # NJS prefer this
             Key(
                 [mod, "shift"],
                 i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc=f"Switch to & move focused window to group {i.name}",
+                lazy.window.togroup(i.name),
+                desc=f"move focused window to group {i.name}",
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod + shift + group number = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
-        ]
+        ],
     )
 
 # NJS: layout_theme from DT (https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/qtile/config.py), edited for gruvbox theme in .config
@@ -160,7 +176,7 @@ for i in groups:
 layout_theme = {"border_width": 2,
                 "margin": 10,
                 "border_focus": colors_gb[purple],
-                "border_normal": colors_gb[bg]
+                "border_normal": colors_gb[bg],
                 }
 
 layouts = [
@@ -185,7 +201,7 @@ widget_defaults = dict(
     font="Ubuntu Bold",
     fontsize=12,
     padding=3,
-    background=colors_gb[bg]
+    background=colors_gb[bg],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -198,7 +214,7 @@ def init_widgets_list():
     widgets_list = [
         widget.CurrentLayout(
             foreground = colors_gb[yellow],
-            padding = 5
+            padding = 5,
             ),
         widget.GroupBox(
             fontsize = 11,
@@ -220,12 +236,12 @@ def init_widgets_list():
         widget.Prompt(
             font = "Ubuntu Mono",
             fontsize=14,
-            foreground = colors_gb[yellow]
+            foreground = colors_gb[yellow],
             ),
         widget.WindowName(
             foreground = colors_gb[aqua],
             padding = 8,
-            max_chars = 40
+            max_chars = 40,
             ),
         widget.Chord(
             chords_colors={
@@ -237,12 +253,12 @@ def init_widgets_list():
         # NJS: widgets taken from DT's config with colors changed
         widget.CPU(
                  foreground = colors_gb[orange],
-                 padding = 8, 
+                 padding = 8,
                  format = 'Cpu: {load_percent}%',
                  ),
         widget.Memory(
                  foreground = colors_gb[yellow],
-                 padding = 8, 
+                 padding = 8,
                  format = '{MemUsed: .0f}{mm}',
                  fmt = 'Mem: {}',
                  ),
@@ -256,15 +272,12 @@ def init_widgets_list():
             check_mute_command="pamixer --get-mute",
             check_mute_string="true",
             foreground = colors_gb[green],
-            padding=2
+            padding=2,
         ),
         # NJS: add battery icom
         widget.BatteryIcon(
                 padding = 4,
                 ),
-        # NJS: add backlight
-        #widget.TextBox("default config", name="default"),
-        #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
         # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
         # widget.StatusNotifier(),
         # NJS: add bluetooth
@@ -285,7 +298,7 @@ def init_widgets_list():
 # NJS: start copy from DT config for multi-screens
 def init_widgets_screen1():
     widgets_screen1 = init_widgets_list()
-    return widgets_screen1 
+    return widgets_screen1
 
 # NJS: second monitor
 def init_widgets_list_screen2():
@@ -294,7 +307,7 @@ def init_widgets_list_screen2():
         widget.CurrentLayout(
             foreground = colors_gb[yellow],
             fontsize = 8,
-            padding = 5
+            padding = 5,
             ),
         widget.GroupBox(
             fontsize = 8,
@@ -316,13 +329,13 @@ def init_widgets_list_screen2():
         widget.Prompt(
             font = "Ubuntu Mono",
             fontsize=10,
-            foreground = colors_gb[yellow]
+            foreground = colors_gb[yellow],
             ),
         widget.WindowName(
             foreground = colors_gb[aqua],
             fontsize = 8,
             padding = 4,
-            max_chars = 40
+            max_chars = 40,
             ),
         widget.Chord(
             chords_colors={
@@ -381,7 +394,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+    ],
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
@@ -411,5 +424,5 @@ wmname = "LG3D"
 
 
 # NJS: TO DO!
-# For brightness control - replace with xrandr command? 
+# For brightness control - replace with xrandr command?
 # Change screen 2 bar size and font?
