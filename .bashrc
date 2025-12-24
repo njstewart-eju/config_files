@@ -1,3 +1,4 @@
+# --------NJS: start default Linux Mint or Debian .bashrc------- #
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -40,7 +41,9 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# NJS: replace terminal colours with the following
+# --------NJS: end default Linux Mint or Debian .bashrc------- #
+
+# --------NJS: start my changes for bash prompt colour------- #
 # Terminal colour
 # colours taken from https://github.com/vanzsh/gruvbox-color-guide/blob/main/gruvbox-theme-color-palette-guide.pdf 
 directory=$(tput setaf 109);
@@ -60,8 +63,9 @@ PS1+="\[${white}\] in ";
 PS1+="\[${directory}\]\W"; # working directory
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
+# --------NJS: end my changes for bash prompt colour------- #
 
-
+# --------NJS: start default Linux Mint or Debian .bashrc------- #
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -114,56 +118,57 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# --------NJS: end default Linux Mint or Debian .bashrc------- #
+
+
+# --------NJS: start my changes, aliases, path changes, env variables etc------- #
 
 # Christmas Tree
 alias xmas='/home/njs/Documents/github/ascii-christmas-tree/ascii-christmas-tree'
 
-#NJS flatpak run aliases
-alias okular='flatpak run org.kde.okular'
-
-#NJS add Orchestra python path
+# add Orchestra python path
 export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/ge-rawdata"
 
-#NJS add ~/.local/bin
+# add ~/.local/bin
 export PATH=/home/njs/.local/bin:${PATH}
 
-#NJS add binaries in /opt/bin
+# add binaries in /opt/bin
 export PATH=/opt/bin:${PATH}
 
-#NJS add ITK-SNAP binaries
+# add ITK-SNAP binaries
 export PATH=/opt/itksnap-4.4.0-20250909-Linux-x86_64/bin:${PATH}
 
-#NJS add Matlab binaries
+# add Matlab binaries
 export PATH=/opt/MATLAB/R2025b/bin:${PATH}
 
-#NJS add Slicer path
+# add Slicer path
 export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
 
-# NJS put imagemagick appimage in /opt/bin
+# occasionally I put things in /opt/bin
 export PATH=/opt/bin:${PATH}
 
-#NJS add Zotero binary
+# add Zotero binary
 export PATH=/opt/Zotero_linux-x86_64:${PATH}
 
-#NJS Add ChromeDriver
+# add ChromeDriver
 export PATH=/opt/chromedriver_linux64:${PATH}
 
-#NJS add MIRTK path
+# add MIRTK path
 export MIRTK_SOURCE_DIR=/home/njs/Documents/github/MIRTK
 
-#NJS add Paraview path
+# add Paraview path
 export PATH=/opt/ParaView-5.10.0-MPI-Linux-Python3.9-x86_64/bin:${PATH}
 
-#NJS add Slicer path
+# add Slicer path
 export PATH=/opt/Slicer-5.8.1-linux-amd64:${PATH}
 
-#NJS add from BART startup.sh script
+# add from BART startup.sh script
 # set environment variables
 #export OMP_NUM_THREADS=23
 export TOOLBOX_PATH=/home/njs/Documents/bart-0.9.00
 export PATH=${TOOLBOX_PATH}:${PATH}
 
-# NJS LaTeX stuff
+# LaTeX stuff
 export PATH=/usr/local/texlive/2024/bin/x86_64-linux:${PATH}
 export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
@@ -198,7 +203,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-. "$HOME/.local/bin/env"
-eval "$(uv generate-shell-completion bash)"
-eval "$(uvx --generate-shell-completion bash)"
+# --------NJS: end my changes------- #
+# NJS: TO DO
+# Automatically determine versions of binaries in /opt for Matlab, ANTS etc - don't hard-code!
