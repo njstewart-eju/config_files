@@ -11,6 +11,7 @@ end
 disp('Loading NJS paths...');
 base_string = fullfile(userdir,'Documents','github');
 
+%% NJS Repos
 addpath(genpath(fullfile(base_string,'Matlab_MRI')));
 addpath(genpath(fullfile(base_string,'ute-utilities')));
 addpath(genpath(fullfile(base_string,'teaching-resources')));
@@ -23,17 +24,17 @@ addpath(genpath(fullfile(base_string,'ge-rawdata','read_mr_latest')));
 addpath(genpath(fullfile(base_string,'mns-research-pack')));
 % ISMRMD
 addpath(genpath(fullfile(base_string,'ismrmd')));
+addpath(genpath(fullfile(base_string,'mrd/matlab')));
 % TOPPE: Pulseq interpreter for GE
 addpath(genpath(fullfile(base_string,'toppe')));
 % Fordanic / Forsberg image registrations
 addpath(genpath(fullfile(base_string,'image-registration')));
-% Matlab Schemer
-addpath(genpath(fullfile(base_string,'matlab-schemer')));
-% Fasta algorithm
-addpath(genpath(fullfile(base_string,'fasta-matlab')));
 
-% Matlab-Schemer
-schemer_import(fullfile(userdir,'Documents','github','matlab-schemer','schemes','monokai.prf'));
+% Matlab Schemer - no longer needed for Matlab 2025b
+% addpath(genpath(fullfile(base_string,'matlab-schemer')));
+% schemer_import(fullfile(userdir,'Documents','github','matlab-schemer','schemes','monokai.prf'));
+% Fasta algorithm - not currently using
+% addpath(genpath(fullfile(base_string,'fasta-matlab')));
 
 %% plab
 plab_path = '/mnt/xdrive/plus1/slib/dev/plab/';
