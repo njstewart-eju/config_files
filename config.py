@@ -425,4 +425,5 @@ wmname = "LG3D"
 
 # NJS: TO DO!
 # For brightness control - replace with xrandr command?
-# Change screen 2 bar size and font?
+# Add screenshot functionality with flameshot
+# autostart.sh file?? 
