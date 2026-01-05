@@ -1,0 +1,60 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# --------NJS: start my changes for bash prompt colour------- #
+# Terminal colour
+directory=$(tput setaf 4); # blue
+hostname=$(tput setaf 1); # red
+user=$(tput setaf 2); # green
+
+bold=$(tput bold);
+reset=$(tput sgr0);
+white=$(tput setaf 7); # white
+
+# Note: removed spaces compared to normal terminal prompt to distinguish that this is Sharc
+PS1="\[${bold}\]"; 
+PS1+="\[${user}\]\u"; 
+PS1+="\[${white}\]@";
+PS1+="\[${hostname}\]\h"; 
+PS1+="\[${white}\]:";
+PS1+="\[${directory}\]\W"; # working directory
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+export PS1;
+# --------NJS: end my changes for bash prompt colour------- #
+
+# Polaris aliases and functions
+if [ -f ${HOME}/.polaris-bash ]; then
+    . ${HOME}/.polaris-bash
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/packages/apps/conda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/packages/apps/conda/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/packages/apps/conda/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/packages/apps/conda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

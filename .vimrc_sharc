@@ -1,5 +1,9 @@
+set nocompatible
+filetype plugin on
+syntax on
 set number
 set relativenumber
 set mouse=nv
-syntax on
+set tabstop=4
+set autoindent
 colorscheme torte
