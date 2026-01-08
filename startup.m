@@ -40,7 +40,7 @@ addpath(genpath(fullfile(base_string,'image-registration')));
 plab_path = '/mnt/xdrive/plus1/slib/dev/plab/';
 if exist(plab_path,'dir')
 	disp('Adding plab to path..');
-	addpath('/mnt/xdrive/plus1/slib/dev/plab/');
+	addpath(plab_path);
 else
 	disp('plab could not be added to path...');
 end

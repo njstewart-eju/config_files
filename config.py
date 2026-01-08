@@ -33,6 +33,8 @@ from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
+# NJS: add import os for screenshot saving location
+import os
 # NJS: gruvbox colorscheme
 # from: https://github.com/egujito/qtile/blob/master/gruvbox.py
 colors_gb  = ["#282828", # background
@@ -73,7 +75,7 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
+    # will be to creen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
@@ -102,6 +104,12 @@ keys = [
     Key([mod], "b", lazy.spawn(browser), desc="Launch web browser"),
     # NJS: power off / reboot etc script from JustAGuyLinux - stored in misc_scripts github
     Key([mod], "x", lazy.spawn("/home/njs/Documents/github/misc_scripts/power"), desc="Power menu"),
+    # NJS: slock to lock screen
+    Key([mod], "s", lazy.spawn("slock"), desc="Run slock to lock the screen"),
+    # NJS: flameshot commands, adapted from https://codeberg.org/justaguylinux/qtile-setup/src/branch/main/qtile/config.py 
+    # Use print screen instead of "s"
+    Key([mod], "print", lazy.spawn("flameshot full --path " + os.path.expanduser("~/Downloads/")), desc="Screenshot (full screen)"),
+    Key([mod, "shift"], "print", lazy.spawn("flameshot gui --path " + os.path.expanduser("~/Downloads/")), desc="Screenshot (region select)"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
