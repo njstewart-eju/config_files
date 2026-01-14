@@ -123,12 +123,15 @@ fi
 
 # --------NJS: start my changes, aliases, path changes, env variables etc------- #
 
+# ALIASES ################
 # Christmas Tree
 alias xmas='/home/njs/Documents/github/ascii-christmas-tree/ascii-christmas-tree'
+
 
 # add Orchestra python path
 export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/ge-rawdata"
 
+# PATH CHANGES ################
 # add ~/.local/bin
 export PATH=/home/njs/.local/bin:${PATH}
 
@@ -147,17 +150,8 @@ export PATH=/opt/Slicer-5.6.2-linux-amd64:${PATH}
 # occasionally I put things in /opt/bin
 export PATH=/opt/bin:${PATH}
 
-# add Zotero binary
-export PATH=/opt/Zotero_linux-x86_64:${PATH}
-
 # add ChromeDriver
 export PATH=/opt/chromedriver_linux64:${PATH}
-
-# add MIRTK path
-export MIRTK_SOURCE_DIR=/home/njs/Documents/github/MIRTK
-
-# add Paraview path
-export PATH=/opt/ParaView-5.10.0-MPI-Linux-Python3.9-x86_64/bin:${PATH}
 
 # add Slicer path
 export PATH=/opt/Slicer-5.8.1-linux-amd64:${PATH}
@@ -165,8 +159,11 @@ export PATH=/opt/Slicer-5.8.1-linux-amd64:${PATH}
 # add from BART startup.sh script
 # set environment variables
 #export OMP_NUM_THREADS=23
-export TOOLBOX_PATH=/home/njs/Documents/bart-0.9.00
-export PATH=${TOOLBOX_PATH}:${PATH}
+export BART_TOOLBOX_PATH=/home/njs/Documents/codeberg/bart
+export PATH="${BART_TOOLBOX_PATH}":"${PATH}"
+# bart view (has the same name as /usr/bin/view which links to vim / neovim
+export BART_VIEW_PATH=/home/njs/Documents/codeberg/view
+export PATH="${BART_VIEW_PATH}":"${PATH}"
 
 # LaTeX stuff
 export PATH=/usr/local/texlive/2024/bin/x86_64-linux:${PATH}
