@@ -35,6 +35,10 @@ from libqtile.lazy import lazy
 
 # NJS: add import os for screenshot saving location
 import os
+# NJS: import other modules needed for autostart script
+import subprocess
+from libqtile import hook
+
 # NJS: gruvbox colorscheme
 # from: https://github.com/egujito/qtile/blob/master/gruvbox.py
 colors_gb  = ["#282828", # background
@@ -419,6 +423,13 @@ wl_input_rules = None
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
+# NJS: autostart script - see DT Gitlab or JustAGuyLinux Codeberg
+@hook.subscribe.startup_once
+def autostart():
+    subprocess.run([os.path.expanduser('~') + '/.config/qtile/autostart.sh'])
+
+
+
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
 # mailing lists, GitHub issues, and other WM documentation that suggest setting
@@ -433,5 +444,3 @@ wmname = "LG3D"
 
 # NJS: TO DO!
 # For brightness control - replace with xrandr command?
-# Add screenshot functionality with flameshot
-# autostart.sh file?? 
