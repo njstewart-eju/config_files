@@ -129,7 +129,7 @@ alias xmas='/home/njs/Documents/github/ascii-christmas-tree/ascii-christmas-tree
 
 
 # add Orchestra python path
-export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/ge-rawdata"
+export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/gehc/orchestra-sdk_3.0.3_linux_python/GERecon/GERecon"
 
 # PATH CHANGES ################
 # add ~/.local/bin
