@@ -170,6 +170,13 @@ export PATH=/usr/local/texlive/2024/bin/x86_64-linux:${PATH}
 export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
 
+# GEHC and ISMRMRD binaries
+export PATH=/home/njs/Documents/gehc/bin:${PATH}
+export PATH=/home/njs/Documents/gehc/ismrmrd/bin:${PATH}
+export PATH=/home/njs/Documents/gehc/ge-tools/bin:${PATH}
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/njs/Documents/gehc/ge-tools/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/njs/Documents/gehc/ismrmrd/lib
+
 # Python UV shell completion
 if [ -x "$(command -v uv)" ]; then
 		eval "$(uv generate-shell-completion bash)"
