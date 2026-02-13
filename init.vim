@@ -12,6 +12,9 @@ set spell
 au BufRead,BufNewFile *.e set filetype=c
 au BufRead,BufNewFile *.m4 set filetype=c
 
+" Vim terminal model use escape to exit
+tnoremap <Esc> <C-\><C-n>
+
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -53,6 +56,7 @@ colorscheme gruvbox
 let g:airline_theme='minimalist'
 
 " VimTeX settings
+let g:vimtex_view_method = 'zathura'
 " let g:vimtex_view_general_viewer = 'okular'
 " let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let maplocalleader = ","
