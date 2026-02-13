@@ -164,6 +164,8 @@ export PATH="${BART_TOOLBOX_PATH}":"${PATH}"
 # bart view (has the same name as /usr/bin/view which links to vim / neovim
 export BART_VIEW_PATH=/home/njs/Documents/codeberg/view
 export PATH="${BART_VIEW_PATH}":"${PATH}"
+# add BART python path
+export PYTHONPATH="${PYTHONPATH}":"${BART_TOOLBOX_PATH}/python"
 
 # LaTeX stuff
 export PATH=/usr/local/texlive/2024/bin/x86_64-linux:${PATH}
