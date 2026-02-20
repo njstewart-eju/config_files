@@ -209,6 +209,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Apptainer cache and tmp directories
+export APPTAINER_CACHEDIR=/home/njs/Apptainer/cache
+export APPTAINER_TMPDIR=/home/njs/Apptainer/tmp
+
 # --------NJS: end my changes------- #
 # NJS: TO DO
 # Automatically determine versions of binaries in /opt for Matlab, ANTS etc - don't hard-code!
