@@ -17,6 +17,11 @@ addpath(genpath(fullfile(base_string,'ute-utilities')));
 addpath(genpath(fullfile(base_string,'teaching-resources')));
 
 %% External Tools
+% HarmonizedMRI utils
+addpath(genpath(fullfile(base_string,'utils')));
+
+% Pulseq MATLAB path
+addpath(genpath(fullfile(base_string,'pulseq','matlab')));
 
 % GE Tools
 addpath(genpath(fullfile(base_string,'ge-rawdata','orchestra-sdk-2.1-1.matlab')));
