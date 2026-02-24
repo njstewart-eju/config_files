@@ -1,0 +1,39 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# --------NJS: start my changes for bash prompt colour------- #
+# Terminal colour
+directory=$(tput setaf 4); # blue
+hostname=$(tput setaf 1); # red
+user=$(tput setaf 2); # green
+
+bold=$(tput bold);
+reset=$(tput sgr0);
+white=$(tput setaf 7); # white
+
+# Note: removed spaces compared to normal terminal prompt to distinguish that this is Sharc
+PS1="\[${bold}\]"; 
+PS1+="\[${user}\]\u"; 
+PS1+="\[${white}\]@";
+PS1+="\[${hostname}\]\h"; 
+PS1+="\[${white}\]:";
+PS1+="\[${directory}\]\W"; # working directory
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+export PS1;
+# --------NJS: end my changes for bash prompt colour------- #
+
+# Polaris aliases and functions
+if [ -f ${HOME}/.polaris-bash ]; then
+    . ${HOME}/.polaris-bash
+fi
+
+# NJS aliases
+alias view='/shared/plus1/user/md1njst/view'
+alias bart='/shared/plus1/user/md1njst/bart'
+
+# NJS libraries for bart
+export LD_LIBRARY_PATH='/shared/plus1/user/md1njst/bart-libraries:/usr/local/cuda/lib64'
