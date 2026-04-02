@@ -15,10 +15,16 @@ base_string = fullfile(userdir,'Documents','github');
 addpath(genpath(fullfile(base_string,'Matlab_MRI')));
 addpath(genpath(fullfile(base_string,'ute-utilities')));
 addpath(genpath(fullfile(base_string,'teaching-resources')));
+addpath(genpath(fullfile(base_string,'openmolli-utils')));
 
 %% External Tools
 % HarmonizedMRI utils
 addpath(genpath(fullfile(base_string,'utils')));
+addpath(genpath(fullfile(base_string,'SequenceExamples-GE','pge2','2DGRE')));
+
+% MIRT
+addpath(fullfile(base_string,'mirt'));
+run(fullfile(base_string,'mirt','setup.m'));
 
 % Pulseq MATLAB path
 addpath(genpath(fullfile(base_string,'pulseq','matlab')));
@@ -35,11 +41,12 @@ addpath(genpath(fullfile(base_string,'toppe')));
 % Fordanic / Forsberg image registrations
 addpath(genpath(fullfile(base_string,'image-registration')));
 
-% Matlab Schemer - no longer needed for Matlab 2025b
-% addpath(genpath(fullfile(base_string,'matlab-schemer')));
-% schemer_import(fullfile(userdir,'Documents','github','matlab-schemer','schemes','monokai.prf'));
-% Fasta algorithm - not currently using
-% addpath(genpath(fullfile(base_string,'fasta-matlab')));
+% Matlab Schemer - not needed for Matlab 2025b
+addpath(genpath(fullfile(base_string,'matlab-schemer')));
+schemer_import(fullfile(userdir,'Documents','github','matlab-schemer','schemes','monokai.prf'));
+
+% %Fasta algorithm - not currently using
+%addpath(genpath(fullfile(base_string,'fasta-matlab')));
 
 %% plab
 plab_path = '/mnt/xdrive/plus1/slib/dev/plab/';
