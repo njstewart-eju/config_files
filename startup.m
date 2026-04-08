@@ -28,18 +28,13 @@ run(fullfile(base_string,'mirt','setup.m'));
 
 % Pulseq MATLAB path
 addpath(genpath(fullfile(base_string,'pulseq','matlab')));
+addpath(genpath(fullfile(base_string,'pulseg','matlab')));
+addpath(genpath(fullfile(base_string,'pge2','matlab')));
 
 % GE Tools
 addpath(genpath(fullfile(base_string,'ge-rawdata','orchestra-sdk-2.1-1.matlab')));
 addpath(genpath(fullfile(base_string,'ge-rawdata','read_mr_latest')));
 addpath(genpath(fullfile(base_string,'mns-research-pack')));
-% ISMRMD
-addpath(genpath(fullfile(base_string,'ismrmd')));
-addpath(genpath(fullfile(base_string,'mrd/matlab')));
-% TOPPE: Pulseq interpreter for GE
-addpath(genpath(fullfile(base_string,'toppe')));
-% Fordanic / Forsberg image registrations
-addpath(genpath(fullfile(base_string,'image-registration')));
 
 % Matlab Schemer - not needed for Matlab 2025b
 addpath(genpath(fullfile(base_string,'matlab-schemer')));
