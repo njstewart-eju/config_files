@@ -129,7 +129,8 @@ alias xmas='/home/njs/Documents/github/ascii-christmas-tree/ascii-christmas-tree
 
 
 # add Orchestra python path
-export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/gehc/orchestra-sdk_3.0.3_linux_python/GERecon/GERecon"
+export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/gehc/orchestra-sdk_3.0.3_linux_python/GERecon/GERecon:/home/njs/Documents/gehc"
+# note: first one is the latest Orchestra, second gives us the option to import from PhysioExtract
 
 # PATH CHANGES ################
 # add ~/.local/bin
@@ -216,3 +217,5 @@ export APPTAINER_TMPDIR=/home/njs/Apptainer/tmp
 # --------NJS: end my changes------- #
 # NJS: TO DO
 # Automatically determine versions of binaries in /opt for Matlab, ANTS etc - don't hard-code!
+
+. "$HOME/.local/share/../bin/env"
