@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=MATLAB_R2022a
-Exec=sh -c "export _JAVA_AWT_WM_NONREPARENTING=1; /opt/MATLAB/R2022a/bin/matlab -softwareopengl -desktop"
+Exec=env LIBGL_DRI3_DISABLE=1 QT_QPA_PLATFORM=xcb _JAVA_AWT_WM_NONREPARENTING=1 LD_PRELOAD=/usr/lib64/libfreetype.so.6:/usr/lib64/libstdc++.so.6 LD_LIBRARY_PATH=/opt/MATLAB/R2022a/bin/glnxa64:/usr/lib64/dri:$LD_LIBRARY_PATH /opt/MATLAB/R2022a/bin/matlab -desktop -useStartupFolderPref -softwareopengl
 Icon=/home/njs/Documents/github/config_files/matlab_logo.png
 Terminal=false
 Type=Application
