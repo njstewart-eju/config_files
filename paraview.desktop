@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Paraview
 Exec=/opt/ParaView-5.10.0-MPI-Linux-Python3.9-x86_64/bin/paraview
-Icon=/home/njs/Documents/github/config_files/paraview_logo.png
 Terminal=false
 Type=Application
 Categories=Education;Viewer;

@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=MATLAB_R2025b
 Exec=/opt/MATLAB/R2025b/bin/matlab -desktop
-Icon=/home/njs/Documents/github/config_files/matlab_logo.png
 Terminal=false
 Type=Application
 Categories=Education;Math;

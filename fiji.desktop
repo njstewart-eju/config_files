@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Fiji
 Exec=/opt/Fiji.app/ImageJ-linux64
-Icon=/home/njs/Documents/github/config_files/fiji_logo.png
 Terminal=false
 Type=Application
 Categories=Education;Viewer;

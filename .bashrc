@@ -218,4 +218,5 @@ export APPTAINER_TMPDIR=/home/njs/Apptainer/tmp
 # NJS: TO DO
 # Automatically determine versions of binaries in /opt for Matlab, ANTS etc - don't hard-code!
 
-. "$HOME/.local/share/../bin/env"
+# Not sure where this came from so commenting it...
+# . "$HOME/.local/share/../bin/env"

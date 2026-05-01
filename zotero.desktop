@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Zotero
 Exec=/opt/Zotero_linux-x86_64/zotero
-Icon=/home/njs/Documents/github/config_files/zotero_logo.png
 Terminal=false
 Type=Application
 Categories=Education;
