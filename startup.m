@@ -12,15 +12,17 @@ disp('Loading NJS paths...');
 base_string = fullfile(userdir,'Documents','github');
 
 %% NJS Repos
-addpath(genpath(fullfile(base_string,'Matlab_MRI')));
+addpath(genpath(fullfile(base_string,'matlab_mri_tools')));
 addpath(genpath(fullfile(base_string,'ute-utilities')));
 addpath(genpath(fullfile(base_string,'teaching-resources')));
-addpath(genpath(fullfile(base_string,'openmolli-utils')));
 
 %% External Tools
 % HarmonizedMRI utils
 addpath(genpath(fullfile(base_string,'utils')));
 addpath(genpath(fullfile(base_string,'SequenceExamples-GE','pge2','2DGRE')));
+
+% Andreia OpenMOLLI
+addpath(genpath(fullfile(base_string,'OpenMOLLI_GE')));
 
 % MIRT
 addpath(fullfile(base_string,'mirt'));
