@@ -220,3 +220,4 @@ export APPTAINER_TMPDIR=/home/njs/Apptainer/tmp
 
 # Not sure where this came from so commenting it...
 # . "$HOME/.local/share/../bin/env"
+. "$HOME/.cargo/env"
