@@ -102,7 +102,7 @@ keys = [
     # NJS: other launchers (from JustAGuyLinux for GIMP and added Inkscape, Nemo etc.)
     Key([mod], "g", lazy.spawn("gimp"), desc="Launch GIMP"),
     Key([mod], "i", lazy.spawn("inkscape"), desc="Launch Inkscape"),
-    Key([mod], "n", lazy.spawn("nemo"), desc="Launch Nemo"),
+    Key([mod], "n", lazy.spawn("thunar"), desc="Launch Thunar"),
     Key([mod], "c", lazy.spawn("galculator"), desc="Launch Galculator"),
     # NJS: shortcut for browser
     Key([mod], "b", lazy.spawn(browser), desc="Launch web browser"),
