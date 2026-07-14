@@ -51,6 +51,10 @@ input "type:pointer" {
     middle_emulation enabled
 }
 
+input "type:keyboard" {
+    xkb_layout gb
+}
+
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -83,6 +87,15 @@ input "type:pointer" {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # remove title from windows
+    default_border pixel 2
+	# colours
+	# orange
+	#client.focused #bd6f3e #bd6f3e #000000 #bd6f3e #bd6f3e
+	# aqua
+	client.focused #72966c #72966c #000000 #72966c #72966c
+
 #
 # Moving around:
 #
