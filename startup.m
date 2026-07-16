@@ -8,7 +8,9 @@ else; userdir= getenv('HOME');
 end
 
 % Github
-disp('Loading NJS paths...');
+disp('--------------------------------------------');
+disp('startup.m running...');
+disp('--------------------------------------------');
 base_string = fullfile(userdir,'Documents','github');
 
 %% NJS Repos
@@ -61,4 +63,6 @@ end
 % If instead we want to use the bart in bart_path, run the below.
 % setenv('BART_TOOLBOX_PATH', bart_path);
 
-disp('Done...');
+disp('--------------------------------------------');
+disp('startup.m done...');
+disp('--------------------------------------------');

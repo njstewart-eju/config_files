@@ -378,7 +378,7 @@ binds {
 	// NJS: change defaults
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+S hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+S hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock -c 000000"; }
     Mod+G hotkey-overlay-title="Launch GIMP" { spawn "gimp"; }
     Mod+B hotkey-overlay-title="Launch Browser: firefox" { spawn "firefox"; }
     Mod+N hotkey-overlay-title="Launch file browser: Thunar" { spawn "thunar"; }
