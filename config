@@ -17,6 +17,7 @@ set $right l
 set $term alacritty
 set $browser firefox
 set $files thunar
+set $config_dir ${HOME}/.config
 # Your preferred application launcher - NJS copied from https://codeberg.org/justaguylinux/sway-setup/src/branch/main/config/config
 set $menu rofi -show drun -config $config_dir/rofi/config.rasi
 
@@ -80,7 +81,7 @@ input "type:keyboard" {
     bindsym $mod+c exec galculator
 	
     # Lock the screen (using grey background colour)
-    bindsym $mod+s exec swaylock -c 404040
+    bindsym $mod+s exec swaylock -c 000000
 
     # Kill focused window
     bindsym $mod+w kill
