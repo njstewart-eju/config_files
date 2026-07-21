@@ -107,7 +107,7 @@ keys = [
     # NJS: shortcut for browser
     Key([mod], "b", lazy.spawn(browser), desc="Launch web browser"),
     # NJS: power off / reboot etc script from JustAGuyLinux - stored in misc_scripts github
-    Key([mod], "x", lazy.spawn("/home/njs/Documents/github/misc_scripts/power"), desc="Power menu"),
+    Key([mod], "x", lazy.spawn("/home/njs/Documents/github/misc_scripts/power_qtile"), desc="Power menu"),
     # NJS: slock to lock screen
     Key([mod], "s", lazy.spawn("slock"), desc="Run slock to lock the screen"),
     # NJS: flameshot commands, adapted from https://codeberg.org/justaguylinux/qtile-setup/src/branch/main/qtile/config.py 

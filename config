@@ -103,6 +103,10 @@ input "type:keyboard" {
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
+
+	# Power menu (shutdown/reboot) - see https://codeberg.org/justaguylinux/sway-setup/src/branch/main/config/scripts/power
+	bindsym $mod+x exec ${HOME}/Documents/github/misc_scripts/power_sway
+
     # remove title from windows
     default_border pixel 2
 	# colours for window borders
