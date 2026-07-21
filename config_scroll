@@ -1,0 +1,7 @@
+include ${HOME}/Documents/github/config_files/config_sway
+
+# include here the scroll-specific config
+animations {
+    enabled no
+}
+
