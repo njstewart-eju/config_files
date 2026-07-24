@@ -340,6 +340,12 @@ window-rule {
     open-floating true
 }
 
+// Open the calculator as floating by default.
+window-rule {
+    match app-id=r#"qalculate"#
+    open-floating true
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -380,6 +386,7 @@ binds {
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun"; }
     Mod+S hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -c 000000"; }
     Mod+G hotkey-overlay-title="Launch GIMP" { spawn "gimp"; }
+    Mod+C hotkey-overlay-title="Launch Calculator" { spawn-sh "qalculate-gtk"; }
     Mod+B hotkey-overlay-title="Launch Browser: firefox" { spawn "firefox"; }
     Mod+N hotkey-overlay-title="Launch file browser: Thunar" { spawn "thunar"; }
 
@@ -593,7 +600,7 @@ binds {
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
-    Mod+C { center-column; }
+    //Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
