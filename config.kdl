@@ -92,6 +92,8 @@ input {
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 2
 
+	background-color "#000000"
+
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
@@ -115,6 +117,8 @@ layout {
     // Set gaps around windows in logical pixels.
 	// NJS: reduce
     gaps 6 
+	always-center-single-column
+	background-color "#000000"
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
