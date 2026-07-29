@@ -210,6 +210,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# Japanese input on Wayland (Sway)
+export XMODIFIERS=@im=fcitx
+#export QT_IM_MODULE=fcitx
+
 # Apptainer cache and tmp directories
 export APPTAINER_CACHEDIR=/home/njs/Apptainer/cache
 export APPTAINER_TMPDIR=/home/njs/Apptainer/tmp
