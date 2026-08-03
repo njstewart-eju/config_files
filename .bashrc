@@ -168,6 +168,9 @@ export PATH="${BART_VIEW_PATH}":"${PATH}"
 # add BART python path
 export PYTHONPATH="${PYTHONPATH}":"${BART_TOOLBOX_PATH}/python"
 
+# python path for raw2ismrmrd
+export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/github/raw2ismrmrd/src"
+
 # LaTeX stuff
 export PATH=/usr/local/texlive/2024/bin/x86_64-linux:${PATH}
 export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
