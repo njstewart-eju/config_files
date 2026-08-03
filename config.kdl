@@ -644,8 +644,8 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
 	// NJS: change to Mod+ and replace ctrl with shift
-    Mod+Print { screenshot; }
-    Mod+Shift+Print { screenshot-screen; }
+    Mod+Print { screenshot-screen; }
+    Mod+Shift+Print { screenshot; }
     //Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
