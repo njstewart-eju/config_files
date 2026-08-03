@@ -244,4 +244,7 @@ mode "resize" {
     bindsym $mod+Print exec grim "${HOME}/Downloads/$(date +%Y-%m-%d_%H-%M-%S).png"
     bindsym $mod+Shift+Print exec grim -g "$(slurp)" "${HOME}/Downloads/$(date +%Y-%m-%d_%H-%M-%S).png"
 
+# Autostart
+exec_always ${HOME}/Documents/github/config_files/sway_autostart.sh
+
 include /etc/sway/config.d/*
