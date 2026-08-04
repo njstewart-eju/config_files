@@ -227,5 +227,6 @@ export APPTAINER_TMPDIR=/home/njs/Apptainer/tmp
 # Automatically determine versions of binaries in /opt for Matlab, ANTS etc - don't hard-code!
 
 # Not sure where this came from so commenting it...
+# Not actively using rust either at the moment...
 # . "$HOME/.local/share/../bin/env"
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
