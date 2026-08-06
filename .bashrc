@@ -214,7 +214,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-# Japanese input on Wayland (Sway)
+# Japanese input on Wayland (Sway, Niri)
 export XMODIFIERS=@im=fcitx
 #export QT_IM_MODULE=fcitx
 

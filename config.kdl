@@ -283,6 +283,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // NJS: disable
 //spawn-at-startup "waybar"
+spawn-at-startup "fcitx5"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -387,7 +388,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
 	// NJS: change defaults
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun"; }
+    Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
     Mod+S hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -c 000000"; }
     Mod+G hotkey-overlay-title="Launch GIMP" { spawn "gimp"; }
     Mod+C hotkey-overlay-title="Launch Calculator" { spawn-sh "qalculate-gtk"; }
