@@ -126,6 +126,8 @@ fi
 # ALIASES ################
 # Christmas Tree
 alias xmas='/home/njs/Documents/github/ascii-christmas-tree/ascii-christmas-tree'
+# Check laptop battery power
+alias check_battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep --color=NEVER -e "state" -e "percentage" -e "time"'
 
 
 # add Orchestra python path
