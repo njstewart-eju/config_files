@@ -88,7 +88,7 @@ input "type:keyboard" {
     bindsym $mod+c exec galculator
 	
     # Lock the screen (using grey background colour)
-    bindsym $mod+s exec swaylock -c 000000
+    bindsym $mod+s exec swaylock -C /home/njs/Documents/github/config_files/swaylock_config
 
     # Kill focused window
     bindsym $mod+w kill

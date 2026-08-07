@@ -389,7 +389,7 @@ binds {
 	// NJS: change defaults
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
-    Mod+S hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -c 000000"; }
+    Mod+S hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -C /home/njs/Documents/github/config_files/swaylock_config"; }
     Mod+G hotkey-overlay-title="Launch GIMP" { spawn "gimp"; }
     Mod+C hotkey-overlay-title="Launch Calculator" { spawn-sh "qalculate-gtk"; }
     Mod+B hotkey-overlay-title="Launch Browser: firefox" { spawn "firefox"; }
