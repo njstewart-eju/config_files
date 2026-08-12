@@ -280,6 +280,12 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+cursor {
+		xcursor-theme "Vimix-cursors"
+		xcursor-size 32
+		hide-after-inactive-ms 5000
+}
+
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // NJS: disable
 //spawn-at-startup "waybar"
@@ -289,10 +295,10 @@ spawn-at-startup "fcitx5"
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 // NJS: comment
-//hotkey-overlay {
+hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
-//}
+    skip-at-startup
+}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.

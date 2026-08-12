@@ -34,6 +34,7 @@ run(fullfile(base_string,'mirt','setup.m'));
 addpath(genpath(fullfile(base_string,'pulseq','matlab')));
 addpath(genpath(fullfile(base_string,'pulseg','matlab')));
 addpath(genpath(fullfile(base_string,'pge2','matlab')));
+addpath(genpath(fullfile(base_string,'toppe')));
 
 % GE Tools
 addpath(genpath(fullfile(base_string,'ge-rawdata','orchestra-sdk-2.1-1.matlab')));
