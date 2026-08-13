@@ -15,15 +15,22 @@ vim.opt.showcmd = false
 -- keybinds
 -- terminal mode use escape to exit
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+-- load Oil for current directory with -
+vim.keymap.set('n', '-', '<CMD>Oil<CR>')
+-- FZF with F or grep with G
+vim.keymap.set('n', '<Space>f', ":lua require('fzf-lua').files()<CR>")
+vim.keymap.set('n', '<Space>g', ":lua require('fzf-lua').grep()<CR>")
 
 -- vim-plug
 local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 -- plugins (no () needed if only one argument)
-Plug 'ellisonleao/gruvbox.nvim'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'lervag/vimtex'
+Plug 'ellisonleao/gruvbox.nvim' -- colorscheme
+Plug 'nvim-lualine/lualine.nvim' -- statusline
+Plug 'nvim-tree/nvim-web-devicons' -- devicons for lualine, oil etc.
+Plug 'lervag/vimtex' -- compile tex
+Plug 'stevearc/oil.nvim' -- working with files
+Plug 'ibhagwan/fzf-lua' -- fuzzy finder and grep
 vim.call('plug#end')
 
 -- lualine settings
@@ -81,6 +88,12 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+-- oil.nvim settings
+require("oil").setup()
+
+-- fzf-lua settings
+require("fzf-lua").setup()
 
 -- vimtex settings
 vim.cmd([[let g:vimtex_view_method = 'zathura']])
