@@ -7,10 +7,8 @@ vim.opt.autoindent = false
 vim.opt.showmode = false
 vim.opt.showcmd = false
 
--- TO DO!
--- For .e (EPIC) files to show with C syntax
---au BufRead,BufNewFile *.e set filetype=c
---au BufRead,BufNewFile *.m4 set filetype=c
+-- For .e (EPIC) files or .m4 to show with C syntax
+vim.filetype.add { extension = { e = 'c', m4 = 'c' } }
 
 -- keybinds
 -- terminal mode use escape to exit
