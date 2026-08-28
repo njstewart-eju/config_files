@@ -29,6 +29,7 @@ Plug 'nvim-tree/nvim-web-devicons' -- devicons for lualine, oil etc.
 Plug 'lervag/vimtex' -- compile tex
 Plug 'stevearc/oil.nvim' -- working with files
 Plug 'ibhagwan/fzf-lua' -- fuzzy finder and grep
+Plug 'MeanderingProgrammer/render-markdown.nvim' -- render markdown inline
 vim.call('plug#end')
 
 -- lualine settings
@@ -89,6 +90,12 @@ require('lualine').setup {
 
 -- oil.nvim settings
 require("oil").setup()
+
+-- render-markdown.nvim settings
+require("render-markdown").setup({
+  file_types = { 'markdown', 'quarto' },
+  render_modes = { 'n', 'c', 't' },
+})
 
 -- fzf-lua settings
 require("fzf-lua").setup()
