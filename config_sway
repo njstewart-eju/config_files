@@ -87,7 +87,7 @@ seat seat0 xcursor_theme Vimix-cursors 32
     bindsym $mod+n exec $files
 	
     # Start calculator
-    bindsym $mod+c exec galculator
+    bindsym $mod+c exec qalculate-gtk
 	
     # Lock the screen (using grey background colour)
     bindsym $mod+s exec swaylock -C /home/njs/Documents/github/config_files/swaylock_config
@@ -124,7 +124,7 @@ seat seat0 xcursor_theme Vimix-cursors 32
 	client.focused #72966c #72966c #000000 #72966c #72966c
 
     # auto floating for certain applications
-	for_window [app_id="galculator"] floating enable, move position center
+	for_window [app_id="qalculate-gtk"] floating enable, move position center
 
 #
 # Moving around:
