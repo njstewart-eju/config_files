@@ -21,7 +21,7 @@ addpath(genpath(fullfile(base_string,'teaching-resources')));
 %% External Tools
 % HarmonizedMRI utils
 addpath(genpath(fullfile(base_string,'utils')));
-addpath(genpath(fullfile(base_string,'SequenceExamples-GE','pge2','2DGRE')));
+%addpath(genpath(fullfile(base_string,'SequenceExamples-GE','pge2','2DGRE')));
 
 % Andreia OpenMOLLI
 addpath(genpath(fullfile(base_string,'OpenMOLLI_GE')));

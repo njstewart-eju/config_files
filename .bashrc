@@ -131,7 +131,7 @@ alias check_battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | gr
 
 
 # add Orchestra python path
-export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/gehc/orchestra-sdk_3.0.3_linux_python/GERecon/GERecon:/home/njs/Documents/gehc"
+export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/gehc"
 # note: first one is the latest Orchestra, second gives us the option to import from PhysioExtract
 
 # PATH CHANGES ################
@@ -158,6 +158,9 @@ export PATH=/opt/chromedriver_linux64:${PATH}
 
 # add Slicer path
 export PATH=/opt/Slicer-5.8.1-linux-amd64:${PATH}
+
+# add Fiji path
+export PATH=/opt/Fiji:${PATH}
 
 # add from BART startup.sh script
 # set environment variables
