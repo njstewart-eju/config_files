@@ -17,8 +17,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=5000
+HISTFILESIZE=5000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -124,11 +124,8 @@ fi
 # --------NJS: start my changes, aliases, path changes, env variables etc------- #
 
 # ALIASES ################
-# Christmas Tree
-alias xmas='/home/njs/Documents/github/ascii-christmas-tree/ascii-christmas-tree'
 # Check laptop battery power
 alias check_battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep --color=NEVER -e "state" -e "percentage" -e "time"'
-
 
 # add Orchestra python path
 export PYTHONPATH="${PYTHONPATH}:/home/njs/Documents/gehc/orchestra-sdk_3.0.3_linux_python/GERecon/GERecon:/home/njs/Documents/gehc"
